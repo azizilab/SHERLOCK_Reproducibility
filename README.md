@@ -13,7 +13,6 @@ Notebooks that reproduce the analyses and figures in:
 - **Paper (PDF):** [Zhang Myers Shi et al SHERLOCK ….pdf](<Zhang Myers Shi et al SHERLOCK Structured representation learning and causal inference of downstream perturbation effects.pdf>) (included in this repository; we will add the preprint link once it is public)
 - **SHERLOCK package:** https://github.com/azizilab/SHERLOCK
 - **This repository:** https://github.com/azizilab/SHERLOCK_Reproducibility
-- **Processed data and trained models:** [Google Drive](https://drive.google.com/drive/folders/1Ru4_jC25V0c9LDfVup4o2P8kgKTBKBaD?usp=sharing)
 
 ## About SHERLOCK
 
@@ -47,8 +46,6 @@ The original data are public. If you use any of these datasets, please also cite
 | GBM kinome CRISPRi/a and 11-drug screens | Shi et al., *bioRxiv* 2026 ([doi:10.64898/2026.01.08.698516](https://doi.org/10.64898/2026.01.08.698516)) | Not yet publicly available |
 | Combinatorial CRISPRa Perturb-seq | Norman et al., *Science* 2019 ([doi:10.1126/science.aax4438](https://doi.org/10.1126/science.aax4438)) | [Figshare](https://figshare.com/articles/dataset/Norman_et_al_2019_Science_labeled_Perturb-seq_data/24688110?file=43390776) |
 
-We also provide the processed inputs and trained models on [Google Drive](https://drive.google.com/drive/folders/1Ru4_jC25V0c9LDfVup4o2P8kgKTBKBaD?usp=sharing), so you can skip preprocessing and training.
-
 ## Quick start
 
 1. **Clone both repositories:**
@@ -57,9 +54,7 @@ We also provide the processed inputs and trained models on [Google Drive](https:
    git clone https://github.com/azizilab/SHERLOCK_Reproducibility.git
    ```
 2. **Install dependencies** (see [Environment](#environment)), and make `sherlock` importable. You can either install it into your environment or edit the `sys.path.append(...)` line at the top of each notebook.
-3. **Download the Google Drive folder.** Its layout matches this repository's folders (see [Files on Google Drive](#files-on-google-drive)).
-4. **Update the paths at the top of each notebook.** The notebooks still contain absolute paths from the authors' machines. The [path table](#paths-to-update) lists every path you need to change.
-5. **Run the notebooks in each dataset folder in the order given below.** The training cells are commented out, so the notebooks load the trained models by default. To retrain, uncomment them.
+3. **Run the notebooks in each dataset folder in the order given below.** The training cells are commented out, and the notebooks load saved checkpoints instead. To train the models yourself, uncomment those cells.
 
 ## Environment
 
@@ -77,62 +72,6 @@ The notebooks were run with Python 3.12 and these package versions:
 | squidpy | (RAEFISH preprocessing only) | | |
 
 The `gseapy` enrichment cells (Replogle and RAEFISH) query the Enrichr web service, so they need internet access. A GPU is used if one is available but is not required.
-
-## Files on Google Drive
-
-The Drive folder uses the same folder names as this repository. Each dataset folder contains up to three subfolders:
-
-- `processed/`: inputs to the SHERLOCK analysis notebooks
-- `models/`: trained checkpoints
-- `raw/`: inputs to the preprocessing notebooks, needed only if you rerun preprocessing
-
-```
-SHERLOCK_Reproducibility_data/
-├── genetic_screen_genome_wide_crispri/
-│   ├── processed/replogle.h5ad
-│   └── models/replogle_model_1.pth
-├── genetic_screen_spatial_reafish/
-│   ├── raw/CellList_PerturbRaeFISH.mat, Codebook_MERFISH.mat, Codebook_RaeFISH.mat
-│   ├── processed/raefish.h5ad
-│   └── models/raefish_model_20260603_112214_3.pth
-├── drug_screen_with EGFR_inhibitors/
-│   ├── raw/BT333_EGFRi_cds_count_matrix_transposed.mtx, BT333_EGFRi_cds_rowData.csv, BT333_EGFRi_cds_colData.csv
-│   ├── processed/bt333_egfr_degs_10000.h5ad, EGFRi_annotations_final_RG.csv
-│   └── models/drug_egfr_model_20260529_163520_1.pth
-├── genetic_screen_kinome-wide_crispria/
-│   ├── raw/
-│   │   ├── crispri/preprocessed_cds_without_Tcells.h5ad, deg_ntc_kinases.csv, T_cell_dose_gene.csv
-│   │   ├── crispra/preprocessed_cds_without_Tcells.h5ad, T_cell_dose_gene.csv
-│   │   ├── guides_over_50_DEGs.csv
-│   │   └── KinMap_kinase_protein_to_gene_map.rds
-│   ├── processed/filtered_gbm_crispri_crop_top_bootstrap_4.h5ad, filtered_gbm_crispra_crop_top_bootstrap_6.h5ad
-│   └── models/
-│       ├── reproducibility_meta_bootstrap_only_v1_noconditions_v2/matrices/                  (CRISPRi, 5 runs)
-│       └── reproducibility_meta_bootstrap_only_v1_noconditions_v2_treated_crispra/matrices/  (CRISPRa, 5 runs)
-└── drug_screen_with_11_kinases_inhibitors/
-    ├── raw/CDS_BT333_Tcells_0_cutoff.h5ad
-    ├── processed/bt333_degs_tcell_1_1000.h5ad, bt333_degs_tcell_10_1000.h5ad
-    └── models/drug_model_20260525_185605_0.pth (1 µM), drug_model_20260519_192528_2.pth (10 µM)
-```
-
-To rerun only the SHERLOCK analyses, download `processed/` and `models/` (about 5 GB). To also rerun preprocessing, download `raw/` as well (about 8 GB more).
-
-## Paths to update
-
-| Notebook | Variable / call | Set it to |
-|---|---|---|
-| All SHERLOCK notebooks | `sys.path.append('../../..')` (`'../..'` for Replogle) | Your SHERLOCK clone, or remove this line if SHERLOCK is installed |
-| All analysis notebooks | `figure_dir` | Any output folder |
-| Any notebook with `slk.tl.load_results('../data/…pth')` | checkpoint path | `<dataset>/models/<file>.pth` |
-| Replogle | `slk.datasets.replogle()` | Reads `sherlock/datasets/replogle.h5ad` inside the SHERLOCK package. Copy the file there, or use `sc.read_h5ad(...)` followed by `slk.pp.slk_prepare_data(...)` as the notebook shows |
-| RAEFISH preprocessing | `load_mat("../../datasets/raefish/...")`, `filtered.write(...)` | `raw/*.mat`, `processed/raefish.h5ad` |
-| RAEFISH analysis | `sc.read_h5ad(".../raefish.h5ad")` | `processed/raefish.h5ad` |
-| EGFR preprocessing | `sc.read_mtx(...)`, `pd.read_csv(...rowData/colData)`, `write_h5ad(...)` | `raw/…`, `processed/bt333_egfr_degs_10000.h5ad` |
-| EGFR analysis | `sc.read_h5ad(...)`, `pd.read_csv(...EGFRi_annotations_final_RG.csv)` | `processed/…` |
-| CRISPRi/a preprocessing | `deg_ntc_kinases.csv`, `T_cell_dose_gene.csv`, `guides_over_50_DEGs.csv`, `preprocessed_cds_without_Tcells.h5ad`, `KinMap_…rds`, `write_h5ad(...)` | `raw/…`, `processed/…` |
-| CRISPRi/a reproducibility | `adata_path`, `RESULTS_DIR` | `processed/…`; put the downloaded `matrices/` folder under `RESULTS_DIR` |
-| 11 drugs preprocessing | `sc.read_h5ad(".../CDS_BT333_Tcells_0_cutoff.h5ad")`, `write_h5ad(...)` | `raw/…`, `processed/…` |
-| 11 drugs analysis | `sc.read_h5ad(".../bt333_degs_tcell_{concentration}_1000.h5ad")` | `processed/…` |
 
 ---
 
@@ -232,7 +171,7 @@ patience=500, latent_dim=16, rank=6, ce_lambda=1, n_epochs_kl_warmup=20, n_epoch
 
 With `use_conditions=False`, metacells from all three T-cell dose ratios are modeled together. The result is a single set of perturbation effects under T-cell co-culture.
 
-**Skipping training:** Notebooks 2a and 2b set `use_rerun = True`. Training is skipped for every run whose `RESULTS_DIR/matrices/run_{i}.npz` file already exists. To reuse our five runs, put the downloaded `matrices/` folder under each notebook's `RESULTS_DIR`, then run the notebook from *Part 2 — Load saved matrices*.
+**Skipping training:** Notebooks 2a and 2b set `use_rerun = True`. Training is skipped for every run whose `RESULTS_DIR/matrices/run_{i}.npz` file already exists. If all five runs are already saved, you can start the notebook from *Part 2 — Load saved matrices*.
 
 **Outputs:** files in `RESULTS_DIR/figures/`:
 
