@@ -44,7 +44,7 @@ The original data are public. If you use any of these datasets, please also cite
 | Genome-scale CRISPRi Perturb-seq | Replogle et al., *Cell* 2022 ([doi:10.1016/j.cell.2022.05.013](https://doi.org/10.1016/j.cell.2022.05.013)) | https://gwps.wi.mit.edu |
 | Spatial perturbation dataset (Perturb-RAEFISH) | Cheng et al., *Cell* 2025 ([doi:10.1016/j.cell.2025.09.006](https://doi.org/10.1016/j.cell.2025.09.006)) | [Mendeley Data](https://data.mendeley.com/datasets/8kbv637pxh/1) |
 | EGFR inhibitor sci-Plex screen | Giglio et al., *bioRxiv* 2025 ([doi:10.1101/2024.04.08.587960](https://doi.org/10.1101/2024.04.08.587960)) | GEO [GSE261618](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE261618) |
-| GBM kinome CRISPRi/a and 11-drug screens | Shi et al., *bioRxiv* 2026 ([doi:10.64898/2026.01.08.698516](https://doi.org/10.64898/2026.01.08.698516)) | GEO GSE319938, GSE319348 |
+| GBM kinome CRISPRi/a and 11-drug screens | Shi et al., *bioRxiv* 2026 ([doi:10.64898/2026.01.08.698516](https://doi.org/10.64898/2026.01.08.698516)) | Not yet publicly available |
 | Combinatorial CRISPRa Perturb-seq | Norman et al., *Science* 2019 ([doi:10.1126/science.aax4438](https://doi.org/10.1126/science.aax4438)) | [Figshare](https://figshare.com/articles/dataset/Norman_et_al_2019_Science_labeled_Perturb-seq_data/24688110?file=43390776) |
 
 We also provide the processed inputs and trained models on [Google Drive](https://drive.google.com/drive/folders/1Ru4_jC25V0c9LDfVup4o2P8kgKTBKBaD?usp=sharing), so you can skip preprocessing and training.
@@ -214,7 +214,7 @@ l0_lambda=50, n_epochs_l0_warmup=100, seed=1
 
 **Data:** sci-Plex CRISPRi and CRISPRa screens of about 140 kinase-targeting guides plus NTCs in BT333 cells. The cells were profiled at three T-cell co-culture dose ratios (1:1, 1:0.5 and 1:0.25) and untreated. Because the screens have few cells per guide, we aggregated cells into **bootstrap metacells**: 4 cells per metacell for CRISPRi and 6 for CRISPRa, with 30 draws per guide-by-treatment group.
 
-**Source:** Shi et al., *bioRxiv* 2026 ([doi:10.64898/2026.01.08.698516](https://doi.org/10.64898/2026.01.08.698516)), GEO GSE319938 / GSE319348.
+**Source:** Shi et al., *bioRxiv* 2026 ([doi:10.64898/2026.01.08.698516](https://doi.org/10.64898/2026.01.08.698516)).
 
 | # | Notebook | What it does |
 |---|---|---|
@@ -248,7 +248,7 @@ With `use_conditions=False`, metacells from all three T-cell dose ratios are mod
 
 **Drugs:** ALWII4127 (EPHA2 inhibitor), CP673451 (PDGFRA inhibitor), Abemaciclib mesylate, BAY1217389, Laduviglusib, PF06260933, SGCAAK11, STK16IN1, Taletrectinib, Tyrphostin9 and Zabedosertib.
 
-**Source:** Shi et al., *bioRxiv* 2026 ([doi:10.64898/2026.01.08.698516](https://doi.org/10.64898/2026.01.08.698516)), GEO GSE319938 / GSE319348.
+**Source:** Shi et al., *bioRxiv* 2026 ([doi:10.64898/2026.01.08.698516](https://doi.org/10.64898/2026.01.08.698516)).
 
 | # | Notebook | What it does |
 |---|---|---|
