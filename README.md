@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="SHERLOCK_logo.png" alt="SHERLOCK logo" width="420">
+</p>
+
 # SHERLOCK Reproducibility
 
 Notebooks that reproduce the analyses and figures in:
