@@ -1,0 +1,18 @@
+# Conda environment for the SHERLOCK reproducibility notebooks.
+#
+#   conda env create -f environment.yml
+#   conda activate sherlock-repro
+#
+# For a CPU-only machine, replace `pytorch-cuda=12.1` with `cpuonly`.
+name: sherlock-repro
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch>=2.1
+  - pytorch-cuda=12.1
+  - pip:
+      - -r requirements.txt

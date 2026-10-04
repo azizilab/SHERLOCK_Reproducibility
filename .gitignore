@@ -1,0 +1,10 @@
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+
+# Inputs, saved models and generated panels are not tracked (see data/README.md, results/README.md)
+data/*
+!data/README.md
+results/*
+!results/README.md
+figures/panels/
