@@ -31,6 +31,7 @@ newly trained model is saved under a new time stamp, so update the load cell to 
 | `benchmarking/` | `models/<method>/run_{0..4}.pth` and `best.pth` for SHERLOCK, cVAE, sVAE, contrastiveVI and scGen; cached robustness matrices | `scripts/replogle/2_benchmarking` |
 | `reproducibility_meta_bootstrap_only_v1_noconditions_v2/` | CRISPRi: per-run matrices (`matrices/run_{i}*`), `matrices/best_model.pth`, figures | `scripts/kinome_crispri_crispra/2a_reproducibility_crispri` |
 | `reproducibility_meta_bootstrap_only_v1_noconditions_v2_treated_crispra/` | CRISPRa: the same | `scripts/kinome_crispri_crispra/2b_reproducibility_crispra` |
+| `reproducibility_drug/` | 11 drugs, 10 µM: per-run matrices (`matrices/run_{i}.npz`), `matrices/best_model.pth`, figures | `scripts/kinase_inhibitors_tcell/4_reproducibility_10uM` |
 | `norman_figure/` | `models/run_{1..5}.pth`, `benchmark_models/`, `gears_models/`, `gears_runs/`, per-run metrics and genetic-interaction scores, `run_matrices.npz` | `scripts/norman/1_norman_analysis` |
 | `gears_data/` | GEARS's preprocessed copy of the Norman data and its gene-ontology graph | `scripts/norman/1_norman_analysis` (GEARS) |
 | `module_interaction/` | `consensus_modules.csv`, `model_features/run_{1..5}.npz`, `factor_signatures.npz` | `scripts/norman/3_module_interaction` |

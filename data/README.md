@@ -45,20 +45,37 @@ data/
 │   └── filtered_gbm_crispra_crop_top_bootstrap_6.h5ad   # written by scripts/kinome_crispri_crispra/1b
 │
 └── norman/                                    # Norman et al. 2019
-    ├── Norman_2019.h5ad                       # Figshare (labelled Perturb-seq data)
+    ├── Norman_2019.h5ad                       # downloaded by sherlock.datasets.norman()
     ├── genetic_interactions.csv               # the 88 pairs with genetic-interaction labels from Norman et al.
     └── aax4438_tables6.xlsx                   # Norman et al. Table S6 (perturbation-map clusters)
 ```
 
-The Replogle dataset is loaded with `sherlock.datasets.replogle()`, which downloads it on first use
-to `~/.cache/sherlock` (or `$SHERLOCK_DATA_DIR` if set).
+## Downloading the public datasets
+
+The processed Replogle and Norman datasets are downloaded by SHERLOCK on first use. With
+`SHERLOCK_DATA_DIR` pointing at this folder they land where the notebooks look for them
+(`replogle.h5ad` and `norman/Norman_2019.h5ad`):
+
+```bash
+export SHERLOCK_DATA_DIR=/path/to/SHERLOCK_Reproducibility/data
+python -c "import sherlock as slk; slk.datasets.replogle(); slk.datasets.norman()"
+```
+
+Without `SHERLOCK_DATA_DIR` they are stored in `~/.cache/sherlock`.
+
+## Other datasets
+
+The processed files for the RAEFISH, EGFR inhibitor and glioblastoma kinase screens are available
+from the corresponding authors on request (José L. McFaline-Figueroa, jm5200@columbia.edu;
+Elham Azizi, elham@azizilab.com). The raw data of the published studies can be obtained from the
+sources below, and the preprocessing notebooks in `scripts/` rebuild the processed files from them.
 
 ## Sources
 
 | Folder | Study | Source |
 |---|---|---|
-| (downloaded) | Replogle et al., *Cell* 2022 | https://gwps.wi.mit.edu |
+| `replogle.h5ad` (downloaded) | Replogle et al., *Cell* 2022 | https://gwps.wi.mit.edu; processed file: [Google Drive](https://drive.google.com/file/d/1E2bqqkzS2GaocHHYg3KImgEDdu7TbvyM/view?usp=sharing) |
 | `raefish/` | Cheng et al., *Cell* 2025 | [Mendeley Data](https://data.mendeley.com/datasets/8kbv637pxh/1) |
 | `gbm/egfr/` | Giglio et al., *bioRxiv* 2025 | GEO [GSE261618](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE261618) |
 | `gbm/` (kinome screens, 11 drugs) | Shi et al., *bioRxiv* 2026 | to be deposited in GEO (see the manuscript's Data Availability) |
-| `norman/` | Norman et al., *Science* 2019 | [Figshare](https://figshare.com/articles/dataset/Norman_et_al_2019_Science_labeled_Perturb-seq_data/24688110?file=43390776); supplementary tables of the paper |
+| `norman/` | Norman et al., *Science* 2019 | [Figshare](https://figshare.com/articles/dataset/Norman_et_al_2019_Science_labeled_Perturb-seq_data/24688110?file=43390776); processed file: [Google Drive](https://drive.google.com/file/d/16A6GSoFtAt8LHbq0OnWGAcryjS7qS9WA/view?usp=sharing); supplementary tables of the paper |

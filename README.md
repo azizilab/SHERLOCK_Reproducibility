@@ -103,9 +103,14 @@ install it first by following [pytorch.org](https://pytorch.org/get-started/loca
 ## Data and saved models
 
 1. **Inputs** go in `data/`. [`data/README.md`](data/README.md) lists every file, where it comes
-   from and the expected layout. The public datasets are available from the original studies
-   (see [Data sources](#data-sources)). The processed input files for the glioblastoma screens
-   will be released together with the GEO deposition of those screens.
+   from and the expected layout. The processed Replogle and Norman datasets can be downloaded with
+   SHERLOCK:
+   ```bash
+   export SHERLOCK_DATA_DIR=$PWD/data
+   python -c "import sherlock as slk; slk.datasets.replogle(); slk.datasets.norman()"
+   ```
+   The other processed datasets are available from the corresponding authors on request; the raw
+   data are available from the original studies (see [Data sources](#data-sources)).
 2. **Saved models and intermediate results** go in `results/`.
    [`results/README.md`](results/README.md) lists each file and the notebook that writes it. With
    these in place, no model has to be retrained to regenerate the figures.
@@ -123,11 +128,11 @@ install it first by following [pytorch.org](https://pytorch.org/get-started/loca
 The SHERLOCK documentation has three tutorials that run on the published datasets and show the
 expected output of each step:
 
-| Tutorial | Data | Run time* |
-|---|---|---|
-| [Replogle](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/replogle.html) | genome-scale CRISPRi Perturb-seq | ~10 min with the saved model |
-| [Glioblastoma drugs ± T cells](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/gbm_drug_conditions.html) | 11 kinase inhibitors, sci-Plex | ~25 min including training |
-| [Norman](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/norman_combinatorial.html) | combinatorial CRISPRa Perturb-seq | ~35 min with the saved model |
+| Tutorial | Design | Data | Run time* |
+|---|---|---|---|
+| [Single perturbations](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/single_perturbations.html) | one perturbation per cell | genome-scale CRISPRi Perturb-seq (Replogle et al.), downloaded by `slk.datasets.replogle()` | ~10 min with the saved model |
+| [Single perturbations across conditions](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/conditional_perturbations.html) | one perturbation per cell, with and without T cells | 11 kinase inhibitors, sci-Plex (Shi et al.), available from the authors on request | ~25 min including training |
+| [Combinatorial perturbations](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/combinatorial_perturbations.html) | one or two perturbations per cell | combinatorial CRISPRa Perturb-seq (Norman et al.), downloaded by `slk.datasets.norman()` | ~35 min with the saved model |
 
 \*Measured on a workstation with one NVIDIA L4 GPU.
 
@@ -145,7 +150,7 @@ independently seeded runs where relevant.
 | `raefish/` | `1_preprocess` (MATLAB cell list → AnnData) → `2_raefish_analysis` | latent 16, rank 6, L0 10, ≤1,000 epochs |
 | `egfr_drug_screen/` | `1_preprocess` (DEG panel, 10 µM) → `2_egfr_analysis` | latent 16, L0 50, ≤1,000 epochs, patience 350 |
 | `kinome_crispri_crispra/` | `1a`/`1b_preprocess` (metacells, guide selection) → `2a`/`2b_reproducibility` (five runs each) | latent 16, rank 6, L0 35, ≤2,500 epochs, patience 500 |
-| `kinase_inhibitors_tcell/` | `1_preprocess` (run with `concentration = '1'` and `'10'`) → `2_analysis_1uM` → `3_analysis_10uM` | latent 8, rank 3, L0 200, ≤1,000 epochs, patience 500, with conditions |
+| `kinase_inhibitors_tcell/` | `1_preprocess` (run with `concentration = '1'` and `'10'`) → `2_analysis_1uM` → `3_analysis_10uM`; `4_reproducibility_10uM` (ten seeded runs at 10 µM: agreement of groups, correlations, conditional responses and downstream genes across runs) | latent 8, rank 3, L0 200, ≤1,000 epochs, patience 500, with conditions |
 | `norman/` | `1_norman_analysis` (five runs, baselines, GEARS, Fig. 4, 5a, S7, S8) → `2_raw_expression_gi` (S9) → `3_module_interaction` (consensus modules) → `4_interaction_biology` (Fig. 5b, S10–S15) | combinatorial, latent 16, rank 16, interaction rank 6, L0 0.1, ≤500 epochs, patience 30 |
 
 The full settings are in each notebook and in the manuscript's Methods. After editing a notebook in
