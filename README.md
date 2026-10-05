@@ -13,7 +13,7 @@ Code that reproduces the figures and analyses of the SHERLOCK manuscript:
 
 This repository holds only notebooks and instructions. The SHERLOCK method itself is the
 `sherlock-perturb` package from [azizilab/SHERLOCK](https://github.com/azizilab/SHERLOCK),
-documented at [sherlock-perturb.readthedocs.io](https://sherlock-perturb.readthedocs.io).
+documented at [azizilabsherlock.readthedocs.io](https://azizilabsherlock.readthedocs.io).
 
 ## Structure
 
@@ -130,9 +130,9 @@ expected output of each step:
 
 | Tutorial | Design | Data | Run time* |
 |---|---|---|---|
-| [Single perturbations](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/single_perturbations.html) | one perturbation per cell | genome-scale CRISPRi Perturb-seq (Replogle et al.), downloaded by `slk.datasets.replogle()` | ~10 min with the saved model |
-| [Single perturbations across conditions](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/conditional_perturbations.html) | one perturbation per cell, with and without T cells | 11 kinase inhibitors, sci-Plex (Shi et al.), available from the first authors on request | ~25 min including training |
-| [Combinatorial perturbations](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/combinatorial_perturbations.html) | one or two perturbations per cell | combinatorial CRISPRa Perturb-seq (Norman et al.), downloaded by `slk.datasets.norman()` | ~35 min with the saved model |
+| [Single perturbations](https://azizilabsherlock.readthedocs.io/en/latest/tutorials/single_perturbations.html) | one perturbation per cell | genome-scale CRISPRi Perturb-seq (Replogle et al.), downloaded by `slk.datasets.replogle()` | ~10 min with the saved model |
+| [Single perturbations across conditions](https://azizilabsherlock.readthedocs.io/en/latest/tutorials/conditional_perturbations.html) | one perturbation per cell, with and without T cells | 11 kinase inhibitors, sci-Plex (Shi et al.), available from the first authors on request | ~25 min including training |
+| [Combinatorial perturbations](https://azizilabsherlock.readthedocs.io/en/latest/tutorials/combinatorial_perturbations.html) | one or two perturbations per cell | combinatorial CRISPRa Perturb-seq (Norman et al.), downloaded by `slk.datasets.norman()` | ~35 min with the saved model |
 
 \*Measured on a workstation with one NVIDIA L4 GPU.
 
