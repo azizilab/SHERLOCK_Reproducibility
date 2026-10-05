@@ -12,7 +12,7 @@ Code that reproduces the figures and analyses of the SHERLOCK manuscript:
 > \* Equal contribution · § Senior and corresponding authors
 
 This repository holds only notebooks and instructions. The SHERLOCK method itself is the
-`sherlock-perturb` package from [azizilab/SHERLOCK](https://github.com/azizilab/SHERLOCK),
+`azizilab-sherlock` package from [azizilab/SHERLOCK](https://github.com/azizilab/SHERLOCK),
 documented at [azizilabsherlock.readthedocs.io](https://azizilabsherlock.readthedocs.io).
 
 ## Structure
@@ -62,7 +62,7 @@ A panel-by-panel index is in [`figures/README.md`](figures/README.md).
 - **Hardware:** a CUDA GPU is recommended for training (tested on an NVIDIA L4, 24 GB, with
   32 CPU cores and 125 GB of RAM). Every notebook also runs on CPU, more slowly. The largest
   inputs (Norman, 11-drug screen) are 2–3 GB on disk and need several times that in memory.
-- **Software:** Python ≥ 3.10, SHERLOCK 0.1.0 (`sherlock-perturb`), and the packages in
+- **Software:** Python ≥ 3.10, SHERLOCK 0.1.0 (`azizilab-sherlock`), and the packages in
   [`requirements.txt`](requirements.txt). The analyses were run with:
 
 | Package | Version | Package | Version |

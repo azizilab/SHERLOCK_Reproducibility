@@ -2,9 +2,9 @@
 #
 # SHERLOCK with the extras for the baselines (scvi-tools, cell-gears) and the tutorials
 # (gseapy, leidenalg, umap-learn, Jupyter):
-sherlock-perturb[benchmarks,tutorials]==0.1.0
+azizilab-sherlock[benchmarks,tutorials]==0.1.0
 # Until the release is on PyPI, install it from GitHub instead:
-#   pip install "sherlock-perturb[benchmarks,tutorials] @ git+https://github.com/azizilab/SHERLOCK.git@v0.1.0"
+#   pip install "azizilab-sherlock[benchmarks,tutorials] @ git+https://github.com/azizilab/SHERLOCK.git@v0.1.0"
 
 # The Replogle enrichment cells use organism="Human", accepted by gseapy 1.1 (newer releases
 # require lowercase), so pin the version the analyses were run with:
