@@ -66,8 +66,7 @@ Without `SHERLOCK_DATA_DIR` they are stored in `~/.cache/sherlock`.
 ## Other datasets
 
 The processed files for the RAEFISH, EGFR inhibitor and glioblastoma kinase screens are available
-from the corresponding authors on request (José L. McFaline-Figueroa, jm5200@columbia.edu;
-Elham Azizi, elham@azizilab.com). The raw data of the published studies can be obtained from the
+from the first authors of the SHERLOCK manuscript on request. The raw data of the published studies can be obtained from the
 sources below, and the preprocessing notebooks in `scripts/` rebuild the processed files from them.
 
 ## Sources

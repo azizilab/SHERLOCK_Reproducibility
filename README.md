@@ -109,7 +109,7 @@ install it first by following [pytorch.org](https://pytorch.org/get-started/loca
    export SHERLOCK_DATA_DIR=$PWD/data
    python -c "import sherlock as slk; slk.datasets.replogle(); slk.datasets.norman()"
    ```
-   The other processed datasets are available from the corresponding authors on request; the raw
+   The other processed datasets are available from the first authors on request; the raw
    data are available from the original studies (see [Data sources](#data-sources)).
 2. **Saved models and intermediate results** go in `results/`.
    [`results/README.md`](results/README.md) lists each file and the notebook that writes it. With
@@ -131,7 +131,7 @@ expected output of each step:
 | Tutorial | Design | Data | Run time* |
 |---|---|---|---|
 | [Single perturbations](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/single_perturbations.html) | one perturbation per cell | genome-scale CRISPRi Perturb-seq (Replogle et al.), downloaded by `slk.datasets.replogle()` | ~10 min with the saved model |
-| [Single perturbations across conditions](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/conditional_perturbations.html) | one perturbation per cell, with and without T cells | 11 kinase inhibitors, sci-Plex (Shi et al.), available from the authors on request | ~25 min including training |
+| [Single perturbations across conditions](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/conditional_perturbations.html) | one perturbation per cell, with and without T cells | 11 kinase inhibitors, sci-Plex (Shi et al.), available from the first authors on request | ~25 min including training |
 | [Combinatorial perturbations](https://sherlock-perturb.readthedocs.io/en/latest/tutorials/combinatorial_perturbations.html) | one or two perturbations per cell | combinatorial CRISPRa Perturb-seq (Norman et al.), downloaded by `slk.datasets.norman()` | ~35 min with the saved model |
 
 \*Measured on a workstation with one NVIDIA L4 GPU.
