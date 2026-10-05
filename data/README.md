@@ -8,10 +8,7 @@ export SHERLOCK_DATA_DIR=/path/to/sherlock_data   # overrides the default ./data
 ```
 
 All notebooks resolve their inputs from `DATA_DIR` (see `../paths.py`). Files marked *written*
-are produced by the preprocessing notebooks from the raw inputs above them; they are also
-included in the manuscript's
-[intermediate files](https://drive.google.com/drive/folders/1Ru4_jC25V0c9LDfVup4o2P8kgKTBKBaD?usp=sharing),
-so preprocessing can be skipped.
+are produced by the preprocessing notebooks from the raw inputs above them.
 
 ## Expected layout
 
@@ -63,5 +60,5 @@ to `~/.cache/sherlock` (or `$SHERLOCK_DATA_DIR` if set).
 | (downloaded) | Replogle et al., *Cell* 2022 | https://gwps.wi.mit.edu |
 | `raefish/` | Cheng et al., *Cell* 2025 | [Mendeley Data](https://data.mendeley.com/datasets/8kbv637pxh/1) |
 | `gbm/egfr/` | Giglio et al., *bioRxiv* 2025 | GEO [GSE261618](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE261618) |
-| `gbm/` (kinome screens, 11 drugs) | Shi et al., *bioRxiv* 2026 | not yet publicly available; processed files are in the intermediate files |
+| `gbm/` (kinome screens, 11 drugs) | Shi et al., *bioRxiv* 2026 | to be deposited in GEO (see the manuscript's Data Availability) |
 | `norman/` | Norman et al., *Science* 2019 | [Figshare](https://figshare.com/articles/dataset/Norman_et_al_2019_Science_labeled_Perturb-seq_data/24688110?file=43390776); supplementary tables of the paper |

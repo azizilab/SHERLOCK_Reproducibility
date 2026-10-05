@@ -2,9 +2,8 @@
 
 This folder is a placeholder; its contents are not tracked by git. The figure notebooks read the
 saved models and cached results from here, so the figures can be regenerated without retraining.
-Obtain them from the manuscript's
-[intermediate files](https://drive.google.com/drive/folders/1Ru4_jC25V0c9LDfVup4o2P8kgKTBKBaD?usp=sharing)
-or regenerate them with the notebooks in `scripts/`. To keep them elsewhere:
+The saved models from the manuscript will be released with the published version of the
+paper; until then, regenerate them with the notebooks in `scripts/`. To keep them elsewhere:
 
 ```bash
 export SHERLOCK_RESULTS_DIR=/path/to/results

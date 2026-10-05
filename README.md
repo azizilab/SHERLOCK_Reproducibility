@@ -104,8 +104,8 @@ install it first by following [pytorch.org](https://pytorch.org/get-started/loca
 
 1. **Inputs** go in `data/`. [`data/README.md`](data/README.md) lists every file, where it comes
    from and the expected layout. The public datasets are available from the original studies
-   (see [Data sources](#data-sources)); the processed files used here are part of the manuscript's
-   [intermediate files](https://drive.google.com/drive/folders/1Ru4_jC25V0c9LDfVup4o2P8kgKTBKBaD?usp=sharing).
+   (see [Data sources](#data-sources)). The processed input files for the glioblastoma screens
+   will be released together with the GEO deposition of those screens.
 2. **Saved models and intermediate results** go in `results/`.
    [`results/README.md`](results/README.md) lists each file and the notebook that writes it. With
    these in place, no model has to be retrained to regenerate the figures.
